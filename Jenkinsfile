@@ -13,7 +13,7 @@ pipeline {
         }
 		stage('Test') {
             steps {
-			    // to install pytest, if not deletet for jenkins 
+			    // install command to 
 			    //sh 'pip install pytest'
                 sh 'py.test --junit-xml test-reports/results.xml sources/test_calc.py'
             }
@@ -25,6 +25,7 @@ pipeline {
         }
 		stage('Deliver') {
             steps {
+			    sh "pip install pyinstaller"
                 sh "pyinstaller --onefile sources/add2vals.py"
             }
             post {
