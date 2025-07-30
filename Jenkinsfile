@@ -1,9 +1,5 @@
 pipeline {
-    agent any
-    environment {
-        PIP_USER = "1"
-        PATH = "${HOME}/.local/bin:${PATH}"
-    }	
+    agent any	
     stages {
         stage('Build') { 
             steps {
